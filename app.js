@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 // makes the file statically available
 app.use(express.static(path.join(rootDir, 'public')));
-app.use('/admin', adminRoutes);
+app.use('/admin', adminRoutes.router);
 app.use(shopRoutes);
 app.use((req, res) => {
     res.status(404).sendFile(path.join(rootDir, 'views', '404.html'));
