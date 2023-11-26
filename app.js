@@ -8,6 +8,12 @@ const shopRoutes = require('./routes/shop');
 
 // express application
 const app = express();
+
+// setting engine for dynamic template
+app.set('view engine', 'pug');
+// setting the directory with my views - where to find templates
+app.set('views', 'views');
+
 app.use(bodyParser.urlencoded({extended: true}));
 // makes the file statically available
 app.use(express.static(path.join(rootDir, 'public')));

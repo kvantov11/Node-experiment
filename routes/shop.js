@@ -5,10 +5,9 @@ const rootDir = require('../utils/path');
 const adminData = require('./admin');
 
 router.get('/', (req, res, next) => {
-    console.log(adminData.products);
-    // absolute path to project directory
-    // dont use / the join function will do it without that properly
-    res.sendFile(path.join(rootDir, 'views', 'shop.html'));
+    const products = adminData.products
+    // will use shop.pug
+    res.render('shop', {prods: products, docTitle: 'Shop'});
 });
 
 module.exports = router;
