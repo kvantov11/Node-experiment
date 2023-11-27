@@ -20,7 +20,7 @@ app.use(express.static(path.join(rootDir, 'public')));
 app.use('/admin', adminRoutes.router);
 app.use(shopRoutes);
 app.use((req, res) => {
-    res.status(404).sendFile(path.join(rootDir, 'views', '404.html'));
+    res.status(404).render('404', {pageTitle: 'Page not found'});
 });
 
 app.listen(8000);
